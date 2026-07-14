@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHIT - South Horizon Institute of Technology</title>
+    <style>
+        :root {
+            --primary: #1b4332; /* 经典美式常春藤墨绿 */
+            --secondary: #d4af37; /* 皇家学术金 */
+            --dark: #111111;
+            --light: #fdfaf6; /* 羊皮纸复古白 */
+            --accent: #a32626; /* 电影暴躁风警示红 */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Garamond', 'Georgia', serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* 导航顶栏 */
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 4px solid var(--secondary);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .crest {
+            background: var(--secondary);
+            color: var(--primary);
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.6rem;
+            border: 3px solid white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            font-family: 'Times New Roman', serif;
+        }
+
+        .logo-text h1 {
+            font-size: 1.8rem;
+            font-family: 'Times New Roman', serif;
+            letter-spacing: 2px;
+        }
+
+        .logo-text p {
+            font-size: 0.85rem;
+            color: var(--secondary);
+            font-style: italic;
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+            font-family: sans-serif;
+        }
+
+        nav a:hover {
+            color: var(--secondary);
+        }
+
+        /* 巨幕核心理念区 */
+        .hero {
+            background: linear-gradient(rgba(17, 34, 25, 0.8), rgba(17, 34, 25, 0.9)), url('./students.png');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 5rem 5%;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1.2rem;
+            font-family: 'Times New Roman', serif;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+            text-align: left;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            /* margin: 0 auto 2rem auto; */
+            margin-bottom: 2rem;
+            color: #e0e0e0;
+        }
+
+        /* 课程列表墙 */
+        .courses {
+            padding: 5rem 5%;
+            background: #f4eee1;
+        }
+
+        .courses h3 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .courses .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+            font-style: italic;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .course-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 8px;
+            border-top: 5px solid var(--secondary);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .course-card h4 {
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .course-card p {
+            color: #555;
+            font-size: 1rem;
+            text-align: justify;
+        }
+
+                /* ================= 模块二：简历投递专用样式 ================= */
+        .upload-container {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 2px dashed var(--secondary);
+            padding: 2.5rem;
+            border-radius: 12px;
+            max-width: 550px;
+            /* margin: 2.5rem auto 0 auto; */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .upload-container:hover {
+            border-color: #fff;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .upload-container input[type="text"], 
+        .upload-container select {
+            width: 100%;
+            padding: 0.9rem 1.2rem;
+            margin-bottom: 1.2rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 6px;
+            font-size: 1.05rem;
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--dark);
+            font-family: sans-serif;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .upload-container input[type="text"]:focus,
+        .upload-container select:focus {
+            border-color: var(--secondary);
+            box-shadow: 0 0 5px rgba(214, 175, 55, 0.5);
+        }
+
+        .file-input-wrapper {
+            position: relative;
+            margin-bottom: 1.8rem;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 1.2rem;
+            border-radius: 6px;
+            cursor: pointer;
+            text-align: center;
+            transition: background 0.3s;
+        }
+
+        .file-input-wrapper:hover {
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .file-input-wrapper span {
+            font-family: sans-serif;
+            font-size: 0.95rem;
+            color: #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .file-input-wrapper input[type="file"] {
+            position: absolute;
+            left: 0; 
+            top: 0; 
+            opacity: 0; 
+            width: 100%; 
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .cta-btn {
+            background-color: var(--secondary);
+            color: var(--primary);
+            font-size: 1.25rem;
+            font-weight: bold;
+            padding: 1.1rem 2rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            text-transform: uppercase;
+            font-family: sans-serif;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(214, 175, 55, 0.3);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .cta-btn:hover {
+            background-color: white;
+            color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.4);
+        }
+
+        .cta-btn:active {
+            transform: translateY(1px);
+        }
+        /* ================= 模块三：学费调节器专用样式 ================= */
+        .tuition-calculator {
+            padding: 5rem 5%;
+            background: #ffffff;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        .tuition-calculator h3 {
+            font-family: 'Times New Roman', serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .tuition-calculator .calc-subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            font-style: italic;
+        }
+
+        .calc-box {
+            max-width: 550px;
+            margin: 0 auto;
+            background: #f4eee1;
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid #e2d9c5;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+        }
+
+        .calc-box label {
+            font-family: sans-serif;
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: var(--primary);
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        /* 自定义滑块外观 */
+        .calc-box input[type="range"] {
+            width: 100%;
+            margin: 1.5rem 0;
+            accent-color: var(--primary);
+            cursor: pointer;
+        }
+
+        .price-display {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--accent);
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0.5rem 0;
+            text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
+        }
+
+        .tuition-note {
+            font-family: sans-serif;
+            font-size: 1rem;
+            color: #555;
+            display: block;
+            margin-top: 1rem;
+            padding: 0.8rem;
+            background: rgba(255,255,255,0.6);
+            border-radius: 6px;
+            min-height: 45px;
+            transition: all 0.3s ease;
+            font-style: italic;
+        }
+        /* ================= 模块四：羊皮纸弹出通知书专用样式 ================= */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.88);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-y: auto;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .letter-paper {
+            background: #fffdf9; /* 羊皮纸复古浅黄 */
+            width: 100%;
+            max-width: 650px;
+            padding: 4rem 3.5rem;
+            border: 2px solid #dcd7cd;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+            position: relative;
+            transform: translateY(-40px);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            background-image: radial-gradient(circle at 50% 50%, rgba(244,238,225,0.2) 0%, rgba(255,253,249,0) 80%);
+        }
+
+        /* 弹窗激活后的淡入动画 */
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-overlay.active .letter-paper {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .letter-header {
+            text-align: center;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 1.2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .letter-crest {
+            font-family: 'Times New Roman', serif;
+            font-size: 2.8rem;
+            font-weight: bold;
+            color: var(--primary);
+            letter-spacing: 5px;
+            line-height: 1;
+        }
+
+        .letter-subtitle {
+            font-family: sans-serif;
+            font-size: 0.8rem;
+            color: var(--secondary);
+            letter-spacing: 2px;
+            font-weight: bold;
+            margin-top: 8px;
+            text-transform: uppercase;
+        }
+
+        .letter-date {
+            font-size: 0.95rem;
+            color: #666;
+            margin-top: 12px;
+            font-family: sans-serif;
+        }
+
+        .letter-body {
+            font-size: 1.2rem;
+            color: #222;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .letter-body p {
+            margin-bottom: 1.5rem;
+        }
+
+        .signature-container {
+            margin-top: 3.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .signature-block {
+            line-height: 1.2;
+        }
+
+        .signature-img {
+            font-family: 'Brush Script MT', cursive, sans-serif;
+            font-size: 2.4rem;
+            color: #3b2314;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+
+        .signature-title {
+            font-family: sans-serif;
+            font-size: 0.85rem;
+            color: #555;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* 电影致敬：官方复古印章（ACCEPTED） */
+        .official-seal {
+            width: 100px;
+            height: 100px;
+            border: 3px dashed var(--accent);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-weight: bold;
+            transform: rotate(-15deg) scale(1);
+            font-size: 0.75rem;
+            text-align: center;
+            font-family: sans-serif;
+            letter-spacing: 0.5px;
+            line-height: 1.3;
+            box-shadow: 0 0 0 4px rgba(255,253,249,1), 0 0 0 6px var(--accent);
+            background: #fffdf9;
+            user-select: none;
+            animation: stampIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.3) forwards;
+        }
+
+        .close-x {
+            position: absolute;
+            top: 15px; right: 25px;
+            font-size: 2.5rem;
+            cursor: pointer;
+            color: #bbb;
+            line-height: 1;
+            transition: color 0.2s;
+            font-family: sans-serif;
+        }
+
+        .close-x:hover { color: #fff; }
+        /* ================= 模块五：新生学籍卡专用样式 ================= */
+        .id-card-wrapper {
+            margin-top: 2.5rem;
+            border-top: 2px dashed #dcd7cd;
+            padding-top: 2rem;
+            perspective: 1000px; /* 为未来可能拓展的3D翻转做视觉准备 */
+        }
+
+        .id-card-title {
+            font-family: sans-serif;
+            font-size: 0.8rem;
+            color: #777;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .id-card-body {
+            background: linear-gradient(135deg, var(--primary) 0%, #0d251c 100%);
+            color: white;
+            padding: 1.8rem;
+            border-radius: 12px;
+            border: 2px solid var(--secondary);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            display: flex;
+            gap: 22px;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 电影致敬：卡片背景带有极其微弱隐蔽的大学缩写暗纹 */
+        .id-card-body::before {
+            content: "SHIT";
+            position: absolute;
+            right: -15px; 
+            bottom: -25px;
+            font-size: 7.5rem;
+            font-weight: 900;
+            color: rgba(255,255,255,0.04);
+            font-family: sans-serif;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        /* 拟真证件照占位框 */
+        .id-photo-box {
+            width: 95px;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px dashed rgba(214, 175, 55, 0.5);
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #ddd;
+            font-size: 0.75rem;
+            font-family: sans-serif;
+            text-align: center;
+            padding: 5px;
+            flex-shrink: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .id-photo-box span {
+            font-size: 1.3rem;
+            margin-bottom: 4px;
+        }
+
+        /* 证件核心文本排版区 */
+        .id-meta-info {
+            flex-grow: 1;
+            z-index: 2;
+        }
+
+        .id-meta-info h4 {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            font-family: 'Times New Roman', serif;
+            margin-bottom: 6px;
+            letter-spacing: 1px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 4px;
+        }
+
+        .id-meta-info p {
+            font-size: 0.9rem;
+            color: #e0e0e0;
+            font-family: sans-serif;
+            margin-bottom: 3px;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .id-meta-info p strong {
+            color: var(--secondary);
+            width: 95px;
+            flex-shrink: 0;
+            font-weight: 600;
+        }
+
+        .id-card-tag {
+            position: absolute;
+            top: 15px; 
+            right: 15px;
+            background: var(--accent);
+            color: white;
+            font-family: sans-serif;
+            font-size: 0.7rem;
+            font-weight: bold;
+            padding: 3px 8px;
+            border-radius: 3px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        /* ================= 模块六：一键下载 PDF 专用打印布局 ================= */
+        .download-pdf-btn {
+            background-color: var(--accent);
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+            padding: 0.8rem 1.5rem;
+            border: 2px solid white;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 1.5rem;
+            width: 100%;
+            text-transform: uppercase;
+            font-family: sans-serif;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: all 0.2s ease;
+        }
+
+        .download-pdf-btn:hover {
+            background-color: white;
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        /* 当用户触发打印/下载 PDF 动作时，以下样式将临时接管网页 */
+        @media print {
+            /* 1. 隐藏全站所有不需要打印的网页元素 */
+            header, .hero, .tuition-calculator, .philosophy, .courses, footer, .close-x, .download-pdf-btn, .id-card-title {
+                display: none !important;
+            }
+
+            /* 2. 强行重置遮罩层，让它变成纯白打印底色 */
+            .modal-overlay {
+                position: absolute;
+                display: block !important;
+                background: #ffffff !important;
+                padding: 0 !important;
+                box-shadow: none !important;
+                backdrop-filter: none !important;
+            }
+
+            /* 3. 羊皮纸通知书去阴影，完美平铺在一张 A4 纸上 */
+            .letter-paper {
+                box-shadow: none !important;
+                border: none !important;
+                padding: 0 !important;
+                margin: 0 auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                background: #ffffff !important;
+            }
+
+            /* 4. 确保学生卡紧跟其后打印出来 */
+            .id-card-wrapper {
+                margin-top: 4cm !important; /* 预留出恰当的纸张间距 */
+                page-break-inside: avoid; /* 防止卡片被强制拦腰切断分页 */
+            }
+
+            .id-card-body {
+                box-shadow: none !important;
+                background: #1b4332 !important; /* 确保打印时保留常春藤绿底色 */
+                -webkit-print-color-adjust: exact; /* 强制浏览器在打印PDF时渲染背景色 */
+                print-color-adjust: exact;
+            }
+        }
+        /* ================= 模块七：全校同学弹幕墙专用样式 ================= */
+        .roster-section {
+            padding: 4rem 5%;
+            background-color: #111111; /* 酷炫深夜黑底，对比衬托金色文字 */
+            color: #ffffff;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+            border-bottom: 3px solid var(--secondary);
+        }
+
+        .roster-section h3 {
+            font-family: 'Times New Roman', serif;
+            font-size: 2.2rem;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .roster-subtitle {
+            font-family: sans-serif;
+            font-size: 0.95rem;
+            color: #888;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* 滚动视窗容器 */
+        .marquee-viewport {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            height: 180px; /* 固定高度，超出部分隐藏 */
+            overflow: hidden;
+            position: relative;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            border: 1px solid rgba(214, 175, 55, 0.15);
+            padding: 10px;
+        }
+
+        /* 边缘淡出上下遮罩（高级视觉质感） */
+        .marquee-viewport::before, .marquee-viewport::after {
+            content: "";
+            position: absolute;
+            left: 0; width: 100%; height: 35px;
+            z-index: 5;
+            pointer-events: none;
+        }
+        .marquee-viewport::before { top: 0; background: linear-gradient(to bottom, #111, transparent); }
+        .marquee-viewport::after { bottom: 0; background: linear-gradient(to top, #111, transparent); }
+
+        /* 滚动轨道 */
+        .marquee-track {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            animation: scrollVertical 22s linear infinite;
+        }
+
+        /* 悬停时暂停滚动，方便查看 */
+        .marquee-viewport:hover .marquee-track {
+            animation-play-state: paused;
+        }
+
+        /* 单条学生数据卡片样式 */
+        .roster-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            border-left: 4px solid var(--secondary);
+            font-family: sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .roster-item:hover {
+            background: rgba(214, 175, 55, 0.12);
+            transform: scale(1.01);
+        }
+
+        .roster-name {
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .roster-major {
+            color: #b392ac; /* 迷幻紫粉色，凸显奇葩专业 */
+            font-style: italic;
+            font-size: 0.95rem;
+        }
+
+        .roster-tag-new {
+            background: var(--accent);
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+            margin-right: 10px;
+            animation: pulse 1s infinite;
+        }
+
+        /* 纵向无缝循环动画 */
+        @keyframes scrollVertical {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-50%); } /* 滚动到一半时无缝折返克隆体 */
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.6; }
+            50% { opacity: 1; }
+            100% { opacity: 0.6; }
+        }
+        /* ================= 模块八：教育思想对话画廊专用样式 ================= */
+        .debate-section {
+            padding: 5rem 5%;
+            background-color: #fdfaf6;
+            background-image: linear-gradient(#f4eee1 1px, transparent 1px), linear-gradient(90deg, #f4eee1 1px, transparent 1px);
+            background-size: 20px 20px; /* 模拟复古复古笔记本网格线 */
+            border-bottom: 4px solid var(--primary);
+        }
+
+        .debate-section h3 {
+            font-family: 'Times New Roman', serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .debate-container {
+            max-width: 900px;
+            margin: 3rem auto 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            position: relative;
+        }
+
+        /* 电影对话气泡通用样式 */
+        .dialogue-bubble {
+            max-width: 75%;
+            padding: 1.5rem 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+            font-size: 1.15rem;
+            text-align: justify;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .dialogue-bubble:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        /* 左侧：传统精英体制的傲慢（反派校长） */
+        .bubble-elite {
+            align-self: flex-start;
+            background-color: #f0f0f0;
+            border-left: 6px solid #555;
+            color: #444;
+        }
+
+        .bubble-elite::after {
+            content: "🏛️ Dean Van Horne (Traditional Elite)";
+            display: block;
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 8px;
+            font-family: sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+
+        /* 右侧：SHIT大学的野蛮生长与自由灵魂（男主角巴特比） */
+        .bubble-shit {
+            align-self: flex-end;
+            background-color: #e8f5e9;
+            border-right: 6px solid var(--primary);
+            color: #1b4332;
+        }
+
+        .bubble-shit::after {
+            content: "🔥 Bartleby Gaines (Founder of S.H.I.T.)";
+            display: block;
+            font-size: 0.8rem;
+            color: var(--secondary);
+            margin-top: 8px;
+            font-family: sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+            text-align: right;
+        }
+
+        /* 电影核心思想灵魂拷问金句高亮 */
+        .gold-quote {
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.25rem;
+            border-bottom: 2px dashed var(--secondary);
+        }
+
+        /* 互动提示 */
+        .click-hint {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #999;
+            font-style: italic;
+            font-family: sans-serif;
+        }
+        /* ================= 模块九：彩蛋版版权尾页专用样式 ================= */
+        footer {
+            background-color: var(--dark);
+            color: #888888;
+            padding: 4rem 5% 2rem 5%;
+            font-family: sans-serif;
+            font-size: 0.9rem;
+            border-top: 5px solid var(--primary);
+            position: relative;
+        }
+
+        .footer-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            text-align: left;
+        }
+
+        .footer-section h5 {
+            color: var(--secondary);
+            font-family: 'Times New Roman', serif;
+            font-size: 1.3rem;
+            margin-bottom: 1.2rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-bottom: 1px solid rgba(214, 175, 55, 0.2);
+            padding-bottom: 5px;
+        }
+
+        .footer-section p {
+            line-height: 1.7;
+            text-align: justify;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.6rem;
+        }
+
+        .footer-links a {
+            color: #b3b3b3;
+            text-decoration: none;
+            transition: color 0.2s, padding-left 0.2s;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            padding-left: 5px; /* 悬停微动效 */
+        }
+
+        /* 电影免责声明高亮框 */
+        .disclaimer-box {
+            border: 1px dashed rgba(163, 38, 38, 0.4);
+            padding: 1rem;
+            background: rgba(163, 38, 38, 0.05);
+            border-radius: 6px;
+            color: #aaa;
+        }
+
+        /* 最底部版权声明条 */
+        .footer-bottom {
+            margin-top: 3.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 1.5rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #666666;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        /* 电影核心思想灵魂拷问金句高亮 */
+        .gold-quote {
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.25rem;
+            border-bottom: 2px dashed var(--secondary);
+            background-color: rgba(212, 175, 55, 0.15); /* 增加类似荧光笔划重点的讽刺视觉感 */
+            padding: 0 4px;
+        }
+
+        .footer-bottom-motto {
+            font-style: italic;
+            color: var(--secondary);
+        }
+        /* ================= 模块十：关键位置图片容器专用样式 ================= */
+        .image-banner-container {
+            max-width: 1000px;
+            margin: 3rem auto;
+            padding: 0 5%;
+            text-align: center;
+        }
+
+        /* 电影风剧照卡片样式 */
+        .movie-screenshot-card {
+            width: 100%;
+            max-width: 750px;
+            border: 4px solid var(--secondary);
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+            background: #fff;
+            padding: 10px;
+            margin: 0 auto;
+        }
+
+        .movie-screenshot-card:hover {
+            transform: scale(1.01);
+            box-shadow: 0 12px 35px rgba(214, 175, 55, 0.3);
+        }
+
+        .movie-screenshot-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            display: block;
+        }
+
+        .image-caption {
+            font-family: sans-serif;
+            font-size: 0.85rem;
+            color: #777;
+            margin-top: 8px;
+            font-style: italic;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* 通知书内部复古钢印专用 */
+        .letter-crest-img {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 10px auto;
+            display: block;
+            opacity: 0.85;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- 顶栏组件 -->
+    <header>
+        <div class="logo-area">
+            <div class="crest">SHIT</div>
+            <div class="logo-text">
+                <h1>SHIT UNIVERSITY</h1>
+                <p>South Horizon Institute of Technology</p>
+            </div>
+        </div>
+        <nav>
+            <a href="#courses">Curriculum</a>
+            <a href="#application-zone">Instant Portal</a>
+        </nav>
+    </header>
+
+    <!-- 电影核心概念巨幕 -->
+    <section class="hero" id="application-zone">
+        <h2>Who Decides Your Future? YOU DO.</h2>
+        <p>A sanctuary of intellectual liberty. We burned the rejection slips and demolished the gatekeepers. Welcome to a university where you are the dean of your own dreams.</p>
+        
+        <!-- 一键简历投递交互组件 -->
+        <div class="upload-container">
+            <form id="admissionForm" onsubmit="handleApply(event)">
+                <!-- 姓名输入 -->
+                <input type="text" id="studentName" placeholder="Type Your Full Name" required>
+                
+                <!-- 奇葩专业选择 -->
+                <select id="customMajor" required>
+                    <option value="" disabled selected>Select Your Passion Field</option>
+                    <option value="Advanced Culinary Grilling & Backyard Dynamic Strategy">Culinary Grilling & Backyard Strategy</option>
+                    <option value="Acoustic Skateboarding & Urban Architecture Mapping">Acoustic Skateboarding & Architecture</option>
+                    <option value="Creative Slacking & Psychological Decompression Matrix">Creative Slacking & Decompression</option>
+                    <option value="Meme Archaeology & Social Media Trash Management">Meme Archaeology & Trash Management</option>
+                </select>
+                
+                <!-- 拟真简历上传 -->
+                <div class="file-input-wrapper">
+                    <span id="fileStatus">📄 Drag or Click to Upload Your Resume (Optional)</span>
+                    <input type="file" id="resumeFile" accept=".pdf,.doc,.docx,.txt" onchange="updateFileStatus(this)">
+                </div>
+                
+                <!-- 投递大按钮 -->
+                <button type="submit" class="cta-btn">⚡ One-Click System Admission</button>
+            </form>
+        </div>
+    </section>
+
+
+    <!-- 电影名梗课程墙组件 -->
+    <section class="courses" id="courses">
+        <h3>Our Radical Educational Pathways</h3>
+        <p class="subtitle">"We don't fit into their boxes. We built our own."</p>
+        <div class="course-grid">
+            <div class="course-card">
+                <h4>Culinary Thermodynamics: The Perfect Hamburger</h4>
+                <p>A hands-on, highly aromatic investigation into heat transfer, seasoned crust dynamics, and the sociological impact of the backyard grill master.</p>
+            </div>
+            <div class="course-card">
+                <h4>Acoustic Architecture & Skateboard Design</h4>
+                <p>Deconstructing urban infrastructure from a rolling perspective. Students engineer custom decks while mapping acoustic echoes in empty pools.</p>
+            </div>
+            <div class="course-card">
+                <h4>Strategic Inertia & Hyper-Focus Slacking</h4>
+                <p>A psychological defense course teaching the fine art of active unproductivity, designed to maximize cognitive explosive power when you actually care.</p>
+            </div>
+        </div>
+        
+    </section>
+        <!-- 关键位置图片一：SHIT 自由校园学生大合影 -->
+    <div class="image-banner-container">
+        <div class="movie-screenshot-card">
+            <!-- 选用电影原版南哈蒙理工学院师生在校门口的大合照 -->
+            <img src="./all.png" alt="South Harmon Institute of Technology Campus Life">
+            <div class="image-caption">📸 Landmark: The Main Campus Gate of S.H.I.T. (Where Passion Beats Bureaucracy)</div>
+        </div>
+    </div>
+
+        <!-- ================= 模块七：全校同学花名册弹幕墙组件 ================= -->
+    <section class="roster-section" id="roster-zone">
+        <h3>Live Accepted Scholar Roster</h3>
+        <p class="roster-subtitle">Real-Time matriculation feed from across the globe</p>
+        
+        <div class="marquee-viewport">
+            <!-- 滚动轨道（JS会自动克隆一份以实现完美无缝循环） -->
+            <div class="marquee-track" id="rosterTrack">
+                <!-- 预置的电影致敬角色数据 -->
+                <div class="roster-item">
+                    <span class="roster-name">Sherman Schrader</span>
+                    <span class="roster-major">Alternative Institutional Marketing & Mascot Dynamics</span>
+                </div>
+                <div class="roster-item">
+                    <span class="roster-name">Rory Thayer</span>
+                    <span class="roster-major">Advanced Romantic Poetry & Heartbreak Mechanics</span>
+                </div>
+                <div class="roster-item">
+                    <span class="roster-name">Glen McReynolds</span>
+                    <span class="roster-major">Culinary Thermodynamics & High-Volume Grilling Science</span>
+                </div>
+                <div class="roster-item">
+                    <span class="roster-name">Hands Holloway</span>
+                    <span class="roster-major">Kinetic Auditory Meditation & Conceptual Sound Waves</span>
+                </div>
+                <div class="roster-item">
+                    <span class="roster-name">Abercrombie Fitch</span>
+                    <span class="roster-major">Psychological Defense Against Corporate Mind-Control</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 模块三：自主定价学费计算器组件 -->
+    <section class="tuition-calculator" id="tuition">
+        <h3>Decide Your Own Tuition</h3>
+        <p class="calc-subtitle">"Just like the movie, our economic model operates on zero formal logic."</p>
+        
+        <div class="calc-box">
+            <label for="tuitionRange">Drag to set your yearly financial contribution:</label>
+            
+            <!-- 滑块最小 -500（倒贴钱），最大 20000 -->
+            <input type="range" id="tuitionRange" min="-500" max="20000" value="10000" step="100" oninput="updateTuitionEngine(this.value)">
+            
+            <!-- 实时金额数字渲染区 -->
+            <div class="price-display" id="priceDisplay">$10,000</div>
+            
+            <!-- 校长动态吐槽文案区 -->
+            <div class="tuition-note" id="tuitionNote">Perfect. This matches our administrative mood exactly.</div>
+        </div>
+    </section>
+    <!-- ================= 模块四：录取通知书弹出层组件 ================= -->
+    <div class="modal-overlay" id="admissionModal" onclick="closeAdmissionModal(event)">
+        <!-- 关闭按钮（位于纸张外部右上角） -->
+        <span class="close-x" onclick="forceCloseModal()">&times;</span>
+        
+        <!-- 羊皮纸卡片本体 -->
+        <div class="letter-paper" onclick="event.stopPropagation()">
+            
+            <div class="letter-header">
+                <div class="letter-crest">S. H. I. T.</div>
+                <div class="letter-subtitle">Office of Universal Registration & Academic Decree</div>
+                <!-- 动态时间戳 -->
+                <div class="letter-date" id="liveLetterDate">July 13, 2026</div>
+            </div>
+
+            <div class="letter-body">
+                <!-- 动态抓取投递者姓名 -->
+                <p><strong id="dynamicApplicantName">Dear Applicant,</strong></p>
+                
+                <p>On behalf of the Universal Admissions Committee, it is our distinct privilege and absolute honor to inform you that you have been <strong>officially accepted</strong> into the Undergraduate Class of <strong>South Horizon Institute of Technology (SHIT)</strong>.</p>
+                
+                <p>Our review engine processed your digital credentials with unparalleled velocity. In strict accordance with our founding charter—<i>to foster education without institutional rejection</i>—we determined that your immediate decision-making power and raw intellectual curiosity represent the pinnacle of what we seek in our scholar community.</p>
+                
+                <p>At SHIT, we do not believe in the metrics of denial. Your resume is your admission certificate. Your readiness to hit the button is your qualification. Welcome to a campus without gates, where you are the master of your own path.</p>
+                
+                <!-- 底部签名与官方钢印区 -->
+                <div class="signature-container">
+                    <div class="signature-block">
+                        <div class="signature-img">Bartleby Gaines</div>
+                        <div class="signature-title">Chancellor & Chief Acceptance Officer</div>
+                    </div>
+                    <div class="official-seal">
+                        OFFICIAL SEAL<br>
+                        <span style="font-size:1.1rem; font-weight:900;">ACCEPTED</span><br>
+                        SHIT UNIV.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 预留锚点：用于承载下一个模块的新生学籍卡（Student ID） -->
+                       <!-- ================= 模块五：即时学籍卡渲染渲染区 ================= -->
+            <div class="id-card-wrapper">
+                <div class="id-card-title">⚡ Digital Student ID Generation Complete</div>
+                
+                <div class="id-card-body">
+                    <!-- 状态角标 -->
+                    <div class="id-card-tag">FRESHMAN</div>
+                    
+                    <!-- 头像占位 -->
+                    <div class="id-photo-box">
+                        <span>👤</span>PHOTO<br>REQUIRED
+                    </div>
+                    
+                    <!-- 动态核心信息流 -->
+                    <div class="id-meta-info">
+                        <h4 id="cardStudentName">Distinguished Legend</h4>
+                        <p><strong>Status:</strong>Active Enrolled</p>
+                        <p><strong>Department:</strong><span id="cardCustomMajor">Self-Directed Studies</span></p>
+                        <p><strong>Student ID:</strong><span id="cardUniqueID" style="font-family:monospace; color:#fff;">SHIT-2026-XXXX</span></p>
+                        <p><strong>Issue Date:</strong><span id="cardIssueDate">July 2026</span></p>
+                    </div>
+                </div>
+            </div>
+                    <!-- 紧跟在学生卡内部下方的下载按钮 -->
+                    <button class="download-pdf-btn" onclick="triggerPdfDownload()">💾 Save & Download Official PDF Bundle</button>
+
+
+        </div>
+    </div>
+    <!-- ================= 模块八：电影经典教育思想对话画廊 ================= -->
+    <section class="debate-section" id="philosophy-debate">
+        <h3>The Great Education Debate</h3>
+          <!-- 关键位置图片二：巴特比法庭终极教育抗争剧照 -->
+        <div class="image-banner-container" style="margin: 1.5rem auto 0 auto;">
+            <div class="movie-screenshot-card" style="max-width: 550px; border-color: var(--primary);">
+                <!-- 选用巴特比在法庭听证会发表终极教育演说时的侧写 -->
+                <img src="./debate.png" alt="Bartleby Gaines Court Hearing Speech">
+                <div class="image-caption" style="color: var(--primary);">🔥 Session: Chancellor Gaines Defending Educational Freedom at the State Hearing</div>
+            </div>
+        </div>
+        <p class="click-hint">Click on any quote to feel the philosophical friction of the South Harmon Movement.</p>
+        
+         <div class="debate-container">
+            
+            <!-- 对话 1：传统体制的打击 -->
+            <div class="dialogue-bubble bubble-elite" onclick="shakeBubble(this)">
+                "A real university requires stone walls, centuries of tradition, and strict gatekeepers to decree who is worthy and who is a failure. Without rejection, education means absolutely nothing."
+            </div>
+
+            <!-- 对话 2：巴特比的绝地反击（电影最燃核心思想） -->
+            <div class="dialogue-bubble bubble-shit" onclick="sparkBubble(this)">
+                "You say we aren't a real college? Why? Because we don't have a multi-million dollar stadium? <span class="gold-quote">You don't need buildings to learn!</span> You need a desire to improve yourself, and that’s exactly what happens on our campus every single day!"
+            </div>
+
+            <!-- 对话 3：精英阶层对学生的热情贬低 -->
+            <div class="dialogue-bubble bubble-elite" onclick="shakeBubble(this)">
+                "If we accept everyone, how do we rank them? How do we produce standardized units for the corporate market? Passion is chaotic; algorithms are safe."
+            </div>
+
+            <!-- 对话 4：终极自由宣言（点题：谁录取了你？你录取了你自己） -->
+            <div class="dialogue-bubble bubble-shit" onclick="sparkBubble(this)">
+                "We are a community of rejects, but we refuse to let your rejection slips define our worth. You ask who gave us the authority to open a university? <span class="gold-quote">Who decides our future? WE DO!</span> S.H.I.T. doesn't accept people to sit them in boring lecture halls; we accept people to let them find out who they truly want to be!"
+            </div>
+
+        </div>
+    </section>
+    <!-- ================= 模块九：电影风彩蛋版版权尾页组件 ================= -->
+    <footer>
+        <div class="footer-container">
+            
+            <!-- 栏目一：校园地标（致敬电影中爆改精神病院的桥段） -->
+            <div class="footer-section">
+                <h5>Campus Locations</h5>
+                <ul class="footer-links">
+                    <li><a href="#application-zone">🏢 The Psychiatric Ward Main Hall (Admissions)</a></li>
+                    <li><a href="#courses">🛹 The Half-Pipe Academic Concourse</a></li>
+                    <li><a href="#tuition">🍔 Glen's Thermodynamic Grilling Courtyard</a></li>
+                    <li><a href="#philosophy-debate">📢 The Courtyard of Rejects (Debate Lounge)</a></li>
+                </ul>
+            </div>
+
+            <!-- 栏目二：学术相关（反传统讽刺） -->
+            <div class="footer-section">
+                <h5>Academics & Freedom</h5>
+                <ul class="footer-links">
+                    <li><a href="#" onclick="alert('Graduation requirements: Find out who you are. That is all.')">🎓 Graduation Requirements</a></li>
+                    <li><a href="#" onclick="alert('Our alumni network has 100% employment rate at places they actually like.')">🤝 Rejects Alumni Network</a></li>
+                    <li><a href="#" onclick="alert('Zero Accreditation Status. 100% Psychological Satisfaction.')">📜 Accreditation Bureaucracy</a></li>
+                    <li><a href="#" onclick="alert('Dean Gaines welcomes you 24/7. Text him anytime.')">📞 Office of the Chancellor</a></li>
+                </ul>
+            </div>
+
+            <!-- 栏目三：电影核心免责声明（高潮彩蛋） -->
+            <div class="footer-section">
+                <h5>Institutional Status</h5>
+                <div class="disclaimer-box">
+                    <p>
+                        <strong>WARNING:</strong> The South Horizon Institute of Technology (S.H.I.T.) is unaccredited by any formal governmental board, ivy gatekeepers, or bureaucratic associations. We do not evaluate you by standard test sheets, and we do not issue traditional debt traps. Proceed at your own absolute liberty.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 底部版权和实时年份计算器 -->
+        <div class="footer-bottom">
+            <div>
+                &copy; <span id="footerLiveYear">2026</span> South Horizon Institute of Technology. Crafted for free minds.
+            </div>
+            <div class="footer-bottom-motto">
+                "Who decides your worth? Not Dean Van Horne. You do." — Bartleby Gaines
+            </div>
+        </div>
+    </footer>
+
+</body>
+    <!-- ================= 模块二：交互逻辑脚本 ================= -->
+    <script>
+        // 实时更新简历文件的上传状态
+        function updateFileStatus(input) {
+            const status = document.getElementById('fileStatus');
+            if (input.files.length > 0) {
+                // 获取并截取文件名，防止过长撑破布局
+                let fileName = input.files[0].name;
+                if(fileName.length > 30) {
+                    fileName = fileName.substring(0, 27) + "...";
+                }
+                status.innerHTML = `✅ Resume Synchronized: <b style="color:var(--secondary);">${fileName}</b>`;
+                status.parentElement.style.background = "rgba(27, 67, 50, 0.4)";
+                status.parentElement.style.borderColor = "var(--secondary)";
+            }
+        }
+
+        // 提交表单时的核心分发引擎（为后续模块埋下伏笔）
+        function handleApply(e) {
+            e.preventDefault();
+            const name = document.getElementById('studentName').value.trim();
+            const major = document.getElementById('customMajor').value;
+            
+            // 安全过滤兜底
+            const finalName = name ? name : "Distinguished Scholar";
+            
+            // 预留接口：用于后续模块的调用
+            if (typeof runAdmissionEngine === "function") {
+                runAdmissionEngine(finalName, major);
+            } else {
+                alert(`Form submitted!\nName: ${finalName}\nMajor: ${major}\n(Admission Engine loading...)`);
+            }
+        }
+    </script>
+<script>
+            // ================= 模块三：动态学费反馈引擎 ================= */
+        function updateTuitionEngine(val) {
+            const display = document.getElementById('priceDisplay');
+            const note = document.getElementById('tuitionNote');
+            const numValue = Number(val);
+            
+            // 1. 实时渲染货币格式化样式
+            if (numValue < 0) {
+                display.innerText = `-$${Math.abs(numValue)}`;
+                display.style.color = "var(--primary)"; // 倒贴钱变绿
+            } else {
+                display.innerText = `$${numValue.toLocaleString()}`;
+                display.style.color = "var(--accent)"; // 收钱维持警示红
+            }
+
+            // 2. 动态讽刺算法决策树（根据金额给出不同剧情反馈）
+            if (numValue < 0) {
+                note.innerText = "🚨 Masterstroke! You have successfully extorted the university. We are now paying you to attend classes.";
+            } else if (numValue === 0) {
+                note.innerText = "🎈 Pure economic anarchy! Free education for the masses. Bartleby would be proud.";
+            } else if (numValue > 0 && numValue <= 3000) {
+                note.innerText = "📉 Hmm, modest. This barely covers the cost of the backyard burger grills and skateboard grip tape.";
+            } else if (numValue > 3000 && numValue <= 9900) {
+                note.innerText = "👍 Reasonable. Enough to keep the electricity running and the Dean's coffee mug full.";
+            } else if (numValue > 9900 && numValue <= 15000) {
+                note.innerText = "💼 Perfect. This matches the standard arbitrary amount required to deceive average parents.";
+            } else {
+                note.innerText = "💰 Whoa! Rich kid alert. Your parents must be absolutely desperate to get you out of the house.";
+            }
+        }
+
+</script>
+<script>
+            // 自动初始化当前时间（固定或渲染至2026年）
+        document.getElementById('liveLetterDate').innerText = new Date().toLocaleDateString('en-US', {
+            year: 'numeric', month: 'long', day: 'numeric'
+        });
+
+        // ================= 模块四：核心录取弹窗控制中心 ================= */
+        function runAdmissionEngine(name, major) {
+            // 1. 动态注入投递者名称
+            document.getElementById('dynamicApplicantName').innerText = `Dear ${name},`;
+            
+            // 2. 唤醒遮罩层并触发淡入动画
+            const modal = document.getElementById('admissionModal');
+            modal.classList.add('active');
+            
+            // 3. 联动接口：如果下方存在模块五，则同时驱动学籍卡渲染
+            if (typeof renderStudentIDCard === "function") {
+                renderStudentIDCard(name, major);
+            }
+        }
+
+        // 强行关闭弹窗
+        function forceCloseModal() {
+            document.getElementById('admissionModal').classList.remove('active');
+        }
+
+        // 点击外围暗化背景关闭
+        function closeAdmissionModal(event) {
+            if(event.target.id === "admissionModal") {
+                forceCloseModal();
+            }
+        }
+
+</script>
+<script>
+            // ================= 模块五：学生学籍卡动态渲染逻辑 ================= */
+        function renderStudentIDCard(name, major) {
+            // 1. 实时把上方捕获的姓名和下拉框专业灌入卡面
+            document.getElementById('cardStudentName').innerText = name;
+            
+            // 如果用户没选具体专业（兜底逻辑）
+            const finalMajor = major ? major : "Self-Directed Freedom Track";
+            document.getElementById('cardCustomMajor').innerText = finalMajor;
+            
+            // 2. 电影经典算法：一键在线离散生成唯一的四位数字大一学号
+            const randomFourDigits = Math.floor(1000 + Math.random() * 9000);
+            document.getElementById('cardUniqueID').innerText = `SHIT-2026-${randomFourDigits}`;
+            
+            // 3. 动态获取当前月份和年份同步到制卡卡面
+            const options = { month: 'long', year: 'numeric' };
+            document.getElementById('cardIssueDate').innerText = new Date().toLocaleDateString('en-US', options);
+        }
+
+</script>
+<script>
+            // ================= 模块六：一键生成 PDF 录取大礼包逻辑 ================= */
+        function triggerPdfDownload() {
+            // 获取当前学生姓名，动态修改 PDF 保存时的文件名（优雅的细节）
+            const studentName = document.getElementById('cardStudentName').innerText;
+            const originalTitle = document.title;
+            
+            // 临时将网页标题改为录取书专属格式，这样浏览器保存 PDF 时会自动命名为这个标题
+            document.title = `SHIT_University_Admission_Letter_${studentName.replace(/\s+/g, '_')}`;
+            
+            // 唤醒系统级打印/保存 PDF 窗口
+            window.print();
+            
+            // 打印窗口关闭后，悄悄把网页标题还原，不留痕迹
+            setTimeout(() => {
+                document.title = originalTitle;
+            }, 500);
+        }
+
+</script>
+<script>
+            // ================= 模块七：花名册弹幕墙无缝滚动与联动引擎 ================= */
+        const track = document.getElementById('rosterTrack');
+
+        // 1. 初始化时自动克隆一份列表，附在轨道末尾，从而在纯CSS平移时达成肉眼无缝循环
+        function initRosterMarquee() {
+            const originalItems = track.innerHTML;
+            track.innerHTML = originalItems + originalItems; 
+        }
+        initRosterMarquee();
+
+        // 2. 核心增量函数：当用户点击录取后，被模块四/五的控制中心顺带唤醒
+        function insertUserIntoRoster(name, major) {
+            const finalMajor = major ? major : "Universal Self-Directed Track";
+            
+            // 构造一条全新的带有【NEW】闪烁标签的实时学生卡片
+            const newItemHTML = `
+                <div class="roster-item" style="border-left-color: var(--accent); background: rgba(163, 38, 38, 0.15);">
+                    <span class="roster-name"><span class="roster-tag-new">JUST ADMITTED</span>${name}</span>
+                    <span class="roster-major">${finalMajor}</span>
+                </div>
+            `;
+            
+            // 获取当前轨道的HTML，因为包含了前半段和克隆的后半段
+            // 我们需要将新同学同时精准插入到“上半段的前端”和“下半段的前端”，确保循环滚动时两处都有他！
+            const currentItems = track.querySelectorAll('.roster-item');
+            const halfLength = currentItems.length / 2;
+            
+            let firstHalfHTML = "";
+            let secondHalfHTML = "";
+            
+            for(let i = 0; i < currentItems.length; i++) {
+                if(i < halfLength) {
+                    firstHalfHTML += currentItems[i].outerHTML;
+                } else {
+                    secondHalfHTML += currentItems[i].outerHTML;
+                }
+            }
+            
+            // 重新缝合轨道：[新同学 + 上半段旧人] + [新同学 + 下半段克隆旧人]
+            track.innerHTML = newItemHTML + firstHalfHTML + newItemHTML + secondHalfHTML;
+        }
+
+        // 3. 完美整合：我们需要把这个数据卡片插入动作，绑定到模块四原有的 runAdmissionEngine 中
+        // 请在你的代码中找到旧的 runAdmissionEngine(name, major) 函数，在它的内部最末尾，补上下面这行调用：
+        // insertUserIntoRoster(name, major);
+
+
+
+</script>
+<script>
+                   // ================= 模块八：思想画廊互动动效 ================= */
+        
+        // 传统体制气泡点击：产生死板、顽固的左摇右晃颤抖
+        function shakeBubble(element) {
+            element.style.transform = "translateX(5px)";
+            setTimeout(() => { element.style.transform = "translateX(-5px)"; }, 50);
+            setTimeout(() => { element.style.transform = "translateX(3px)"; }, 100);
+            setTimeout(() => { element.style.transform = "translateX(-3px)"; }, 150);
+            setTimeout(() => { element.style.transform = "translateX(0)"; }, 200);
+        }
+
+        // 自由灵魂气泡点击：产生带有启发性质的扩增微光
+        function sparkBubble(element) {
+            const originalBg = element.style.backgroundColor;
+            element.style.backgroundColor = "#fff9db"; // 变金光
+            element.style.transform = "scale(1.03)";
+            
+            setTimeout(() => {
+                element.style.backgroundColor = originalBg;
+                element.style.transform = "scale(1)";
+            }, 300);
+        }
+    </script>
+    <script>
+                // ================= 模块九：页脚实时年份同步逻辑 ================= */
+        // 自动计算并同步页脚处的当前版权年份
+        document.getElementById('footerLiveYear').innerText = new Date().getFullYear();
+
+    </script>
+</html>
